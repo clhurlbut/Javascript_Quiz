@@ -5,12 +5,11 @@ A short quiz on Javascript, made with Javascipt
 This is an exercise to create a timed, multiple choice quiz using HTML, CSS, and Javascript. 
 
 ## User Story 
-'''
-AS A coding boot camp student
+```
+AS A coding bootcamp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
-'''
-
+```
 ## Built With
 * HTML
 * CSS
