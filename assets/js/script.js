@@ -27,42 +27,50 @@ let quizQuestions = [
     choiceC: "Well, that really depends!",
     choiceD: "You mean like coffee beans?",
     correctAnswer: "b"},
+
+    {question: "Testing to see if it works",
+    choiceA: "Yes!",
+    choiceB: "No!",
+    choiceC: "Well, that really depends!",
+    choiceD: "You mean like coffee beans?",
+    correctAnswer: "b"},
+
+    {question: "Just to see if anything is changing",
+    choiceA: "Yes!",
+    choiceB: "No!",
+    choiceC: "Well, that really depends!",
+    choiceD: "You mean like coffee beans?",
+    correctAnswer: "b"},
+
+    {question: "Then I will figure out why the answers aren't working",
+    choiceA: "Yes!",
+    choiceB: "No!",
+    choiceC: "Well, that really depends!",
+    choiceD: "You mean like coffee beans?",
+    correctAnswer: "b"},
+
     {question: "Is Java the same as Javascript?",
     choiceA: "Yes!",
     choiceB: "No!",
     choiceC: "Well, that really depends!",
     choiceD: "You mean like coffee beans?",
     correctAnswer: "b"},
+
     {question: "Is Java the same as Javascript?",
     choiceA: "Yes!",
     choiceB: "No!",
     choiceC: "Well, that really depends!",
     choiceD: "You mean like coffee beans?",
     correctAnswer: "b"},
+
+
     {question: "Is Java the same as Javascript?",
     choiceA: "Yes!",
     choiceB: "No!",
     choiceC: "Well, that really depends!",
     choiceD: "You mean like coffee beans?",
     correctAnswer: "b"},
-    {question: "Is Java the same as Javascript?",
-    choiceA: "Yes!",
-    choiceB: "No!",
-    choiceC: "Well, that really depends!",
-    choiceD: "You mean like coffee beans?",
-    correctAnswer: "b"},
-    {question: "Is Java the same as Javascript?",
-    choiceA: "Yes!",
-    choiceB: "No!",
-    choiceC: "Well, that really depends!",
-    choiceD: "You mean like coffee beans?",
-    correctAnswer: "b"},
-    {question: "Is Java the same as Javascript?",
-    choiceA: "Yes!",
-    choiceB: "No!",
-    choiceC: "Well, that really depends!",
-    choiceD: "You mean like coffee beans?",
-    correctAnswer: "b"},
+
     {question: "Is Java the same as Javascript?",
     choiceA: "Yes!",
     choiceB: "No!",
@@ -84,7 +92,7 @@ let correct;
 function generateQuestions() {
     highScoreDisplayDiv.style.display = "none";
     if (currentQuestionArray === endQuestionArray){
-        console.log("GAME OVER");
+        return showScore();
     }
 
     let displayQuestion = quizQuestions[currentQuestionArray];
@@ -95,25 +103,10 @@ function generateQuestions() {
     ansBtnD.innerHTML = displayQuestion.choiceD;
 };
 
-// function to check repsonses to answers 
-
-function checkAnswer(ans){
-    correct = quizQuestions[currentQuestionArray].correctAnswer;
-
-    if (ans === correct && currentQuestionArray !== endQuestionArray){
-        score++;
-        alert("Ding, ding, ding! That is correct!");
-        currentQuestionArray++;
-        generateQuestions();
-    } else if (ans !== correct && currentQuestionArray !== endQuestionArray){
-        alert("Whomp, whomp. Incorrect.");
-        currentQuestionArray++;
-        generateQuestions();
-    }
-}
 // function to start quiz and hide buttons and text away 
 function startQuiz(){
     endContainer.style.display = "none";
+    startQuizCont.style.display = "none";
     generateQuestions();
 
 // setting the timer
@@ -123,9 +116,40 @@ timer = setInterval(function() {
     timerContainer.textContent = "Time left: " + timeLeft;
     if (timeLeft === 0) {
         clearInterval(timer);
+        showScore();
     }
 }, 1000);
 quizContainer.style.display = "block";
 }
+
+// function to show the score at the end of the quiz
+function showScore() {
+    quizContainer.style.display = "none";
+    endContainer.style.display = "flex";
+    clearInterval(timer);
+    endScoreInitialsInput.value = "";
+    endScore.innerHTML = "Wow! You got " + score + " out of " + quizQuestions.length + " questions correct!";
+
+}
+// function to check repsonses to answers 
+
+function checkAnswer(answer){
+    correct = quizQuestions[currentQuestionArray].correctAnswer;
+
+    if (answer === correct && currentQuestionArray !== endQuestionArray){
+        score++;
+        resultsContainer.innerHTML="Ding, ding, ding! That is correct!";
+        currentQuestionArray++;
+        generateQuestions();
+    } else if (answer !== correct && currentQuestionArray !== endQuestionArray){
+        resultsContainer.innerHTML="Whomp, whomp. Incorrect.";
+        currentQuestionArray++;
+        generateQuestions();
+    } else {
+        showScore();
+    }
+}
+
+
 
 startQuizButton.addEventListener("click", startQuiz);
