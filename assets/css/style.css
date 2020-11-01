@@ -4,33 +4,95 @@
 
 h2 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: x-large;
     font-weight: bolder;
     margin-top: 15px;
+    text-align: center;
 }
 
 p {
     color: darkblue;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: large;
+    font-size: xx-large;
     text-align: center;
     text-decoration: black 3px;
 }
 
 li {
     list-style-type: none;
-    text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: cornflowerblue;
+    color: black;
     font-size: medium;
-    text-decoration: black 5px;
 }
 
 input {
     text-align: center;
 }
 
+button {
+    display: inline-flex;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: black;
+    background-color: darkcyan;
+    border: 5px solid black;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 15px;
+    margin-top: 3px;
+}
+
+button:hover{
+    color: darkcyan;
+    text-decoration: black 8px;
+    background-color: whitesmoke;
+    box-shadow: 10px 10px 10px navy;
+}
+
+.main-container {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px, auto;
+}
+
+#start-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #quiz-container {
     display: none;
+}
+
+#timer-container {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: left;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: black;
+    background-color: darkcyan;
+    border: 5px solid black;
+    border-radius: 10px;
+    width: 120px;
+    padding: 15px;
+    margin-top: 3px;
+
+}
+
+#answer-result {
+    margin-top: 10px;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: royalblue;
+    padding: 15px;
+    letter-spacing: 2px;
+    text-decoration: black solid 4px;
 }
 
 #results-container {
@@ -39,10 +101,57 @@ input {
 
 #end-container {
     display: none;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#end-score {
+    color: darkblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+    text-decoration: black 8px;
+    padding: 20px 0;
 }
 
 #high-score-container {
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    width: max-content;
 }
 
+#high-score-display {
+    display: none;
+    border: black solid 5px;
+    border-radius: 8px;
+    background: cornflowerblue;
+    width: 70%;
+    padding-bottom: 5px;
+}
 
+#high-score-text {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: black solid 5px;
+
+}
+
+#high-score-initials {
+    display: inline-block;
+    padding-left: 80px;
+}
+
+#high-score-score {
+    float: right;
+    padding-right: 40px;
+    }
+
+#end-btns-container {
+    display: none;
+}
