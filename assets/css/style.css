@@ -1,5 +1,6 @@
 :root {
     background-color: bisque;
+    margin: 10px;
 }
 
 h2 {
@@ -30,7 +31,7 @@ input {
 }
 
 button {
-    display: inline-flex;
+    display: inline-block;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
     font-size: 18px;
