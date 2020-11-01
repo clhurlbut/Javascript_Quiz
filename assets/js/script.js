@@ -1,7 +1,7 @@
 // mapping to all the elements on the page 
-let startQuiz = document.getElementById("start-container");
+let startQuizCont = document.getElementById("start-container");
 let startQuizButton = document.getElementById("start-btn");
-let quizCotainer = document.getElementById("quiz-container");
+let quizContainer = document.getElementById("quiz-container");
 let timerContainer = document.getElementById("timer-container");
 let questionsContainer = document.getElementById("questions-container");
 let ansBtnA = document.getElementById("ans-1");
@@ -74,10 +74,58 @@ let quizQuestions = [
 // more global variables will go here 
 let score = 0;
 let timeLeft = 80;
-let timerInterval;
+let timer;
 let endQuestionArray = quizQuestions.length;
 let currentQuestionArray = 0;
 let correct;
 
+// function to generate questions 
 
+function generateQuestions() {
+    highScoreDisplayDiv.style.display = "none";
+    if (currentQuestionArray === endQuestionArray){
+        console.log("GAME OVER");
+    }
 
+    let displayQuestion = quizQuestions[currentQuestionArray];
+    questionsContainer.innerHTML = "<p>" + displayQuestion.question + "</p>";
+    ansBtnA.innerHTML = displayQuestion.choiceA;
+    ansBtnB.innerHTML = displayQuestion.choiceB;
+    ansBtnC.innerHTML = displayQuestion.choiceC;
+    ansBtnD.innerHTML = displayQuestion.choiceD;
+};
+
+// function to check repsonses to answers 
+
+function checkAnswer(ans){
+    correct = quizQuestions[currentQuestionArray].correctAnswer;
+
+    if (ans === correct && currentQuestionArray !== endQuestionArray){
+        score++;
+        alert("Ding, ding, ding! That is correct!");
+        currentQuestionArray++;
+        generateQuestions();
+    } else if (ans !== correct && currentQuestionArray !== endQuestionArray){
+        alert("Whomp, whomp. Incorrect.");
+        currentQuestionArray++;
+        generateQuestions();
+    }
+}
+// function to start quiz and hide buttons and text away 
+function startQuiz(){
+    endContainer.style.display = "none";
+    generateQuestions();
+
+// setting the timer
+
+timer = setInterval(function() {
+    timeLeft--;
+    timerContainer.textContent = "Time left: " + timeLeft;
+    if (timeLeft === 0) {
+        clearInterval(timer);
+    }
+}, 1000);
+quizContainer.style.display = "block";
+}
+
+startQuizButton.addEventListener("click", startQuiz);
