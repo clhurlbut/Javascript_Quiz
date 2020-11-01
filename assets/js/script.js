@@ -8,6 +8,7 @@ let questionsContainer = document.getElementById("questions-container");
 let ansBtnA = document.getElementById("ans-1");
 let ansBtnB = document.getElementById("ans-2");
 let ansBtnC = document.getElementById("ans-3");
+let answerResult = document.getElementById("answer-result");
 let ansBtnD = document.getElementById("ans-4");
 let resultsContainer = document.getElementById("results-container");
 let endContainer = document.getElementById("end-container");
@@ -106,7 +107,7 @@ function generateQuestions() {
     ansBtnD.innerHTML = displayQuestion.choiceD;
 };
 
-// function to start quiz and hide buttons and text away 
+// function to start quiz with timer and hide buttons and text away 
 function startQuiz(){
     endContainer.style.display = "none";
     startQuizCont.style.display = "none";
@@ -181,7 +182,7 @@ function generateHighScores(){
 
 }
 
-// function to display the high scores and hide all the other elements
+// function to display the high scores and hide all the other elements with onclick in html
 
 function displayHighScore(){
     startQuizCont.style.display = "none";
@@ -192,7 +193,7 @@ function displayHighScore(){
     generateHighScores();
 }
 
-// function to clear the localstorage and textContent
+// function to clear the localstorage and textContent with onclick in html 
 
 function clearScore(){
     window.localStorage.clear();
@@ -200,7 +201,7 @@ function clearScore(){
     highScoreShowScore.textContent = "";
 }
 
-// function to replay the quiz 
+// function to replay the quiz with onclick in html, i know it is not the best so I will get rid of it soon 
 function replay(){
     highScoreContainer.style.display = "none";
     endContainer.style.display = "none";
@@ -216,11 +217,12 @@ function checkAnswer(answer){
 
     if (answer === correct && currentQuestionArray !== endQuestionArray){
         score++;
-        resultsContainer.innerHTML="Ding, ding, ding! That is correct!";
+        answerResult.innerHTML="Ding, ding, ding! That is correct!";
         currentQuestionArray++;
         generateQuestions();
     } else if (answer !== correct && currentQuestionArray !== endQuestionArray){
-        resultsContainer.innerHTML="Whomp, whomp. Incorrect.";
+        timeLeft--;
+        answerResult.innerHTML="Whomp, whomp. Incorrect. Time penalty -1";
         currentQuestionArray++;
         generateQuestions();
     } else {

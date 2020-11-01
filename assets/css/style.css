@@ -1,0 +1,48 @@
+:root {
+    background-color: bisque;
+}
+
+h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
+    margin-top: 15px;
+}
+
+p {
+    color: darkblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+    text-align: center;
+    text-decoration: black 3px;
+}
+
+li {
+    list-style-type: none;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: cornflowerblue;
+    font-size: medium;
+    text-decoration: black 5px;
+}
+
+input {
+    text-align: center;
+}
+
+#quiz-container {
+    display: none;
+}
+
+#results-container {
+    display: none;
+}
+
+#end-container {
+    display: none;
+}
+
+#high-score-container {
+    display: none;
+}
+
+
