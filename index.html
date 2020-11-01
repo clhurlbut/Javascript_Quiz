@@ -14,16 +14,16 @@
     <h2>Javascript Quiz!</h2>
     <h2>This is a quiz to help test your knowledge on Javascript basics!</h2>
     <button id="start-btn">Start Quiz!</button>
-    <button id="start-btn-highscore">High Scores!</button>
+    <button id="start-btn-highscore" onclick="displayHighScore()">High Scores!</button>
     </div>
     <div id="quiz-container">
     <div id="timer-container">Time Left: </div>
     <div id="questions-container"><p>Question:</p></div>
   
-    <button id="ans-1" onclick="checkAnswer('a')">Answer 1</button>
-    <button id="ans-2" onclick="checkAnswer('b')">Answer 2</button>
-    <button id="ans-3" onclick="checkAnswer('c')">Answer 3</button>
-    <button id="ans-4" onclick="checkAnswer('d')">Answer 4</button>
+    <button id="ans-1" onclick="checkAnswer('a')">Answer A</button>
+    <button id="ans-2" onclick="checkAnswer('b')">Answer B</button>
+    <button id="ans-3" onclick="checkAnswer('c')">Answer C</button>
+    <button id="ans-4" onclick="checkAnswer('d')">Answer D</button>
     <div id="results-container"></div>
 </div>
 <div id="end-container">
@@ -41,8 +41,8 @@
         <div id="high-score-score"></div>
     </div>
     <div id="end-btns-container">
-        <button id="play-again">Play Again!</button>
-        <button id="reset-high-score">Clear High Scores</button>
+        <button id="play-again" onclick="replay()">Play Again!</button>
+        <button id="reset-high-score" onclick="clearScore()">Clear High Scores</button>
     </div>
 </div>
 </div>
