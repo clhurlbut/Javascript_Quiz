@@ -17,19 +17,23 @@ SO THAT I can gauge my progress compared to my peers
 
 ## Website
 
-GitPages Deployed URL : 
+GitPages Deployed URL : https://clhurlbut.github.io/Javascript_Quiz/
 
-Github Repository URL : 
+Github Repository URL : https://github.com/clhurlbut/Javascript_Quiz
 
 ## Screenshot
 
-![Screenshot of Deployed Gitpage]()
+![Screenshot of Deployed Gitpage](./assets/imgs/screenshotStartPage.png)
+![Screenshot of Deployed Gitpage](./assets/imgs/screenshotQuiz.png)
+![Screenshot of Deployed Gitpage](./assets/imgs/screenshotQuiz2.png)
 
 ## References 
 
+* https://www.w3schools.com/js/
+* https://developer.mozilla.org/en-US/docs/Web/API/
 
 
 ## Contribution
-Made in part with :potato: by Cassie Hurlbut for UCLA Coding Bootcampe / Trilogy 
+Made with :potato: by Cassie Hurlbut for UCLA Coding Bootcamp / Trilogy 
 
 ##### Thank you UCLA Coding Bootcamp / Trilogy! 
