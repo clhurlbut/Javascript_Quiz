@@ -1,11 +1,12 @@
 :root {
     background-color: bisque;
-    margin: 10px;
+    box-sizing: border-box;
 }
 
 h2 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: x-large;
+    font-size: xx-large;
+    letter-spacing: 2px;
     font-weight: bolder;
     margin-top: 15px;
     text-align: center;
@@ -43,9 +44,10 @@ button {
     width: fit-content;
     padding: 15px;
     margin-top: 3px;
+    align-items: center;
 }
 
-button:hover{
+button:hover {
     color: darkcyan;
     text-decoration: black 8px;
     background-color: whitesmoke;
@@ -56,9 +58,11 @@ button:hover{
     width: auto;
     height: auto;
     display: flex;
+    background-color: bisque;
     justify-content: center;
     align-items: center;
     margin: 5px, auto;
+    padding: 15px;
 }
 
 #start-container {
@@ -69,6 +73,8 @@ button:hover{
 
 #quiz-container {
     display: none;
+    padding: 15px;
+    justify-content: center;
 }
 
 #timer-container {
@@ -83,7 +89,6 @@ button:hover{
     width: 120px;
     padding: 15px;
     margin-top: 3px;
-
 }
 
 #answer-result {
@@ -140,7 +145,6 @@ button:hover{
     display: flex;
     justify-content: space-around;
     border-bottom: black solid 5px;
-
 }
 
 #high-score-initials {
@@ -151,7 +155,7 @@ button:hover{
 #high-score-score {
     float: right;
     padding-right: 40px;
-    }
+}
 
 #end-btns-container {
     display: none;

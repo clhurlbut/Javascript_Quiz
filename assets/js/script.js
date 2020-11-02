@@ -1,3 +1,9 @@
+// I am sure there are easier ways to do this and I want to revisit it
+// I specifically wanted to remove the results line and the leftover timer
+// when you start the replay() but I just could not figure it out this time
+//around. Maybe I will resubmit! I know the style is not great, but it is 
+//dynamic....
+
 // mapping to all the elements on the page 
 let startQuizCont = document.getElementById("start-container");
 let startQuizButton = document.getElementById("start-btn");
@@ -85,10 +91,10 @@ let quizQuestions = [
 
 // more global variables will go here 
 let score = 0;
-let timeLeft = 80;
+let timeLeft = 70;
 let timer;
-let endQuestionArray = quizQuestions.length;
 let currentQuestionArray = 0;
+let endQuestionArray = quizQuestions.length;
 let correct;
 
 // function to generate questions 
@@ -111,6 +117,7 @@ function generateQuestions() {
 function startQuiz(){
     endContainer.style.display = "none";
     startQuizCont.style.display = "none";
+    timeLeft = 70;
     generateQuestions();
 
 // setting the timer
@@ -131,6 +138,7 @@ function showScore() {
     quizContainer.style.display = "none";
     endContainer.style.display = "flex";
     clearInterval(timer);
+    timeLeft = 70;
     endScoreInitialsInput.value = "";
     endScore.innerHTML = "Wow! You got " + score + " out of " + quizQuestions.length + " questions correct!";
 
@@ -184,36 +192,36 @@ function generateHighScores(){
 
 // function to display the high scores and hide all the other elements with onclick in html
 
-function displayHighScore(){
+startButtonHighScore.addEventListener("click", function displayHighScore(){
     startQuizCont.style.display = "none";
     endContainer.style.display = "none";
     highScoreContainer.style.display = "flex";
     highScoreDisplayDiv.style.display = "block";
     endButtons.style.display = "flex";
     generateHighScores();
-}
+});
 
-// function to clear the localstorage and textContent with onclick in html 
+// function to clear the localstorage and textContent with addEventListener
 
-function clearScore(){
+resetHighScoresButton.addEventListener("click", function clearScore(){
     window.localStorage.clear();
     highScoreShowInitials.textContent = "";
     highScoreShowScore.textContent = "";
-}
+});
 
-// function to replay the quiz with onclick in html, i know it is not the best so I will get rid of it soon 
-function replay(){
+// redid this so it is an addEventListener 
+playAgainButton.addEventListener("click", function replay(){
     highScoreContainer.style.display = "none";
     endContainer.style.display = "none";
     startQuizCont.style.display = "flex";
-    timeLeft = 80;
+    timeLeft = 70;
     score = 0;
     currentQuestionArray = 0;
-}
-// function to check repsonses to answers, using the onclick in the html to run this function! thanks google!
-
-function checkAnswer(answer){
+});
+// function to check repsonses to answers, changed to using addEventListener
+ansBtnA.addEventListener("click", function checkAnswerA(answer){
     correct = quizQuestions[currentQuestionArray].correctAnswer;
+		answer = 'a';
 
     if (answer === correct && currentQuestionArray !== endQuestionArray){
         score++;
@@ -228,7 +236,60 @@ function checkAnswer(answer){
     } else {
         showScore();
     }
-}
+});
+ansBtnB.addEventListener("click", function checkAnswerB(answer){
+    correct = quizQuestions[currentQuestionArray].correctAnswer;
+		answer = 'b';
+
+    if (answer === correct && currentQuestionArray !== endQuestionArray){
+        score++;
+        answerResult.innerHTML="Ding, ding, ding! That is correct!";
+        currentQuestionArray++;
+        generateQuestions();
+    } else if (answer !== correct && currentQuestionArray !== endQuestionArray){
+        timeLeft--;
+        answerResult.innerHTML="Whomp, whomp. Incorrect. Time penalty -1";
+        currentQuestionArray++;
+        generateQuestions();
+    } else {
+        showScore();
+    }
+});
+ansBtnC.addEventListener("click", function checkAnswerC(answer){
+    correct = quizQuestions[currentQuestionArray].correctAnswer;
+answer = 'c';
+    if (answer === correct && currentQuestionArray !== endQuestionArray){
+        score++;
+        answerResult.innerHTML="Ding, ding, ding! That is correct!";
+        currentQuestionArray++;
+        generateQuestions();
+    } else if (answer !== correct && currentQuestionArray !== endQuestionArray){
+        timeLeft--;
+        answerResult.innerHTML="Whomp, whomp. Incorrect. Time penalty -1";
+        currentQuestionArray++;
+        generateQuestions();
+    } else {
+        showScore();
+    }
+});
+ansBtnD.addEventListener("click", function checkAnswerD(answer){
+    correct = quizQuestions[currentQuestionArray].correctAnswer;
+answer = 'd';
+    if (answer === correct && currentQuestionArray !== endQuestionArray){
+        score++;
+        answerResult.innerHTML="Ding, ding, ding! That is correct!";
+        currentQuestionArray++;
+        generateQuestions();
+    } else if (answer !== correct && currentQuestionArray !== endQuestionArray){
+        timeLeft--;
+        answerResult.innerHTML="Whomp, whomp. Incorrect. Time penalty -1";
+        currentQuestionArray++;
+        generateQuestions();
+    } else {
+        showScore();
+    }
+});
 
 
+// This starts the quiz!
 startQuizButton.addEventListener("click", startQuiz);
