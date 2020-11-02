@@ -281,8 +281,8 @@ answer = 'd';
         currentQuestionArray++;
         generateQuestions();
     } else if (answer !== correct && currentQuestionArray !== endQuestionArray){
-        timeLeft--;
-        answerResult.innerHTML="Whomp, whomp. Incorrect. Time penalty -1";
+        timeLeft = timeLeft - 2;
+        answerResult.innerHTML="Whomp, whomp. Incorrect. Time penalty!";
         currentQuestionArray++;
         generateQuestions();
     } else {
